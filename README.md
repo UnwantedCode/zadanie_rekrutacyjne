@@ -13,7 +13,7 @@ Wykorzystując framework **CodeIgniter3**, stwórz **CRUD** dla pracowników fir
 - Usuwanie pracownika.
 
 **Uwagi:**
-- Połącz projekt z bazą danych MySQL. Dane dostępowe do bazy danych znajdują się w pliku `application/config/database.php`. https://codeigniter.com/userguide3/database/configuration.html
+- Projekt jest połączony z bazą danych MySQL. Dane dostępowe do bazy danych znajdują się w pliku `application/config/database.php`. https://codeigniter.com/userguide3/database/configuration.html
 - Dane pracowników powinny zawierać pola: `id`, `first_name`, `last_name`, `phone_number`.
 - Do operacji na bazie danych użyj modeli CodeIgnitera.
 - Zamiast standardowych zapytań SQL wykorzystaj składnię dostępną w frameworku.
@@ -70,6 +70,7 @@ Aplikacja posiada konfigurację obrazów dockerowych
 # zbudowanie obrazu i uruchomienie kontenera aplikacji
 docker-compose up -d
 ```
+Strona startowa `http://localhost:8080/Welcome`
 
 Aplikacja będzie dostępna pod adresem `http://localhost:8080`
 
@@ -77,8 +78,7 @@ Dostęp internetowy do bazy danych: `http://localhost:8084`
 
 Dane dostępowe do bazy danych:
 ```
-host: localhost
-port: 3306
+host: rekrutacja_mysql
 database: example_db
 user: user
 password: passwd

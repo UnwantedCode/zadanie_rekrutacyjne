@@ -1,6 +1,7 @@
-version: "3.4"
+version: "3.8"
 services:
-  server:
+  rekrutacja_server:
+    container_name: rekrutacja_server
     build:
       context: docker/server
     volumes:
@@ -8,39 +9,25 @@ services:
     ports:
       - "8080:80"
     depends_on:
-        - mysql
-    labels:
-        - "project=rekrutacja"
-  mysql:
-      image: mysql:8.0
-      container_name: mysql
+        - rekrutacja_mysql
+  rekrutacja_mysql:
+      image: mysql:5.7
+      container_name: rekrutacja_mysql
+      restart: always
       environment:
           MYSQL_ROOT_PASSWORD: example
           MYSQL_DATABASE: example_db
           MYSQL_USER: user
           MYSQL_PASSWORD: passwd
       ports:
-          - "3306:3306"
-      volumes:
-          - db_data:/var/lib/mysql
-      labels:
-          - "project=rekrutacja"
-
-  phpmyadmin:
-      image: phpmyadmin:latest
-      container_name: phpmyadmin
-      depends_on:
-          - mysql
+          - '3310:3306'
+  rekrutacja_phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: rekrutacja_phpmyadmin
+      restart: always
       environment:
-          PMA_HOST: mysql
-          PMA_PORT: 3306
+          PMA_HOST: rekrutacja_mysql
       ports:
           - "8084:80"
-      labels:
-          - "project=rekrutacja"
-
-volumes:
-    db_data:
-      labels:
-        - "project=rekrutacja"
-
+      depends_on:
+          - rekrutacja_mysql

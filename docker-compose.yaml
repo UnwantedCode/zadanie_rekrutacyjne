@@ -1,0 +1,46 @@
+version: "3.4"
+services:
+  server:
+    build:
+      context: docker/server
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - "8080:80"
+    depends_on:
+        - mysql
+    labels:
+        - "project=rekrutacja"
+  mysql:
+      image: mysql:8.0
+      container_name: mysql
+      environment:
+          MYSQL_ROOT_PASSWORD: example
+          MYSQL_DATABASE: example_db
+          MYSQL_USER: user
+          MYSQL_PASSWORD: passwd
+      ports:
+          - "3306:3306"
+      volumes:
+          - db_data:/var/lib/mysql
+      labels:
+          - "project=rekrutacja"
+
+  phpmyadmin:
+      image: phpmyadmin:latest
+      container_name: phpmyadmin
+      depends_on:
+          - mysql
+      environment:
+          PMA_HOST: mysql
+          PMA_PORT: 3306
+      ports:
+          - "8084:80"
+      labels:
+          - "project=rekrutacja"
+
+volumes:
+    db_data:
+      labels:
+        - "project=rekrutacja"
+

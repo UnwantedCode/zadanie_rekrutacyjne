@@ -21,6 +21,8 @@ services:
           MYSQL_PASSWORD: passwd
       ports:
           - '3310:3306'
+      volumes:
+          - rekrutacja_db_data:/var/lib/mysql
   rekrutacja_phpmyadmin:
       image: phpmyadmin/phpmyadmin
       container_name: rekrutacja_phpmyadmin
@@ -31,3 +33,5 @@ services:
           - "8084:80"
       depends_on:
           - rekrutacja_mysql
+volumes:
+    rekrutacja_db_data:

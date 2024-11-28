@@ -13,11 +13,11 @@ Wykorzystując framework **CodeIgniter3**, stwórz **CRUD** dla pracowników fir
 - Usuwanie pracownika.
 
 **Uwagi:**
-- Projekt jest połączony z bazą danych MySQL. Dane dostępowe do bazy danych znajdują się w pliku `application/config/database.php`. https://codeigniter.com/userguide3/database/configuration.html
+- Projekt jest połączony z bazą danych MySQL.
 - Dane pracowników powinny zawierać pola: `id`, `first_name`, `last_name`, `phone_number`.
 - Do operacji na bazie danych użyj modeli CodeIgnitera.
 - Zamiast standardowych zapytań SQL wykorzystaj składnię dostępną w frameworku.
-- Dokumentacja do bazy danych znajduje się na stronie: [Database Reference](https://codeigniter.com/userguide3/index.html).
+- Dokumentacja do bazy danych znajduje się na stronie: [Database Reference](https://codeigniter.com/userguide3/database/index.html).
 
 ---
 

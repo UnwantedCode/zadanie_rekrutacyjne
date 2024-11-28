@@ -23,6 +23,7 @@ services:
           - '3310:3306'
       volumes:
           - rekrutacja_db_data:/var/lib/mysql
+          - ./docker/mysql/mysql-custom.cnf:/etc/mysql/conf.d/mysql-custom.cnf
   rekrutacja_phpmyadmin:
       image: phpmyadmin/phpmyadmin
       container_name: rekrutacja_phpmyadmin
